@@ -1,0 +1,17 @@
+<template>
+
+  <div class="row">
+
+    <div class="col-md-6">
+      <input type="number" class="form-control" min="1" value.bind="group.input.value.timer">
+    </div>
+
+    <div class="col-md-6">
+      <select class="form-control" value.bind="group.input.value.timerType">
+        <option repeat.for="option of group.input.options" value="${option.value}" t.bind="option.name">${option.name}</option>
+      </select>
+    </div>
+
+  </div>
+
+</template>

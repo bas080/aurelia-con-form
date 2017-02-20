@@ -1,0 +1,14 @@
+<template>
+
+  <select class="form-control"
+    value.bind="group.input.value">
+    <template containerless repeat.for="option of group.input.options">
+      <option
+        t.bind="option.name"
+        model.bind="option.value">
+        ${option.name}
+      </option>
+    </template>
+  </select>
+
+</template>

@@ -1,0 +1,7 @@
+<template bindable="group">
+  <button click.delegate="group.buttons[0].action()" type="button" class="pull-right btn btn-${group.buttons[0].type || 'default'}">
+    <span if.bind="group.buttons[0].icon" class="fa fa-${group.buttons[0].icon}"></span>
+    <span if.bind="group.buttons[0].text" t.bind="group.buttons[0].text">${group.buttons[0].text}</span>
+  </button>
+</template>
+

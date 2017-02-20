@@ -1,0 +1,17 @@
+<template>
+
+  <p if.bind="group.input.options.length === 0 && group.input.resource" class="text-muted">No ${group.input.resource}</p>
+  <template containerless repeat.for="option of group.input.options">
+    <div class="checkbox">
+      <label>
+        <input
+        type="checkbox"
+        name.bind="option.name"
+        model.bind="option.value"
+        checked.bind="group.input.value"
+        t.bind="option.name"
+        >${option.name}</label>
+    </div>
+  </template>
+
+</template>

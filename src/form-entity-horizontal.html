@@ -1,0 +1,29 @@
+<template>
+
+  <form-horizontal change.delegate="change()">
+
+    <template containerless repeat.for="group of groups">
+
+      <form-group acl.bind="group.acl" view-model.ref="formGroupVM[$index]">
+
+        <form-label name.bind="group.label.name"></form-label>
+
+        <form-input
+          type.bind="group.input.type"
+          placeholder.bind="group.input.placeholder"
+          select-type.bind="group.input.seletType"
+          resource.bind="group.input.resource"
+          value.bind="entity[group.key]"
+          ></form-input>
+
+        <form-description if.bind="group.description" description.bind="group.description.description"></form-description>
+
+        <form-error errors.bind="errors[group.key]"></form-error>
+
+      </form-group>
+
+    </template>
+
+  </form-horizontal>
+
+</template>

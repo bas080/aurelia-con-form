@@ -1,0 +1,53 @@
+<template>
+
+  <form class="form-horizontal" focus-first>
+    <template repeat.for="group of groups">
+
+      <compose
+        if.bind="group.type"
+        view.bind="view(group)">
+      </compose>
+
+      <div class="form-group ${group.error.hasErrors ? 'has-error' : ''}" if.bind="visible(group) && !group.type">
+
+        <label if.bind="group.label" class="control-label col-md-4 col-sm-12">
+          ${group.label.name}
+        </label>
+
+        <div class="${group.label ? '' : 'col-md-offset-4 col-xs-offset-0'} col-md-8 col-sm-12">
+
+          <compose
+            containerless
+            if.bind="!hasViewModel(group.input)"
+            view.bind="view(group.input)"
+            ></compose>
+
+          <compose
+            containerless
+            if.bind="hasViewModel(group.input)"
+            model.bind="group"
+            view-model.bind="viewModel(group.input)"
+            ></compose>
+
+          <p
+            class="help-block"
+            t.bind="group.description.description"
+            >${group.description.description}</p>
+
+          <template repeat.for="message of group.error.messages" >
+            <p class="help-block"
+              t.bind="message"></p>
+          </template>
+
+        </div>
+
+      </div>
+
+    </template>
+  </form>
+
+  <div style="display: none">
+    <slot></slot>
+  </div>
+
+</template>

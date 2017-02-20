@@ -1,0 +1,38 @@
+<template>
+
+  <template containerless if.bind="!group.input.buttons">
+
+    <association-select
+      multiple.bind="group.input.multiple"
+      type.bind="group.input.selectType"
+      association.bind="group.input.association"
+      selectable-placeholder.bind="group.input.selectablePlaceholder"
+      value.bind="group.input.value"
+      resource.bind="group.input.resource"
+      criteria.bind="group.input.criteria"></association-select>
+
+  </template>
+
+  <template containerless if.bind="group.input.buttons">
+    <div class="input-group">
+
+      <association-select
+        value.bind="group.input.value"
+        type.bind="group.input.selectType"
+        association.bind="group.input.association"
+        selectable-placeholder.bind="group.input.selectablePlaceholder"
+        resource.bind="group.input.resource"
+        criteria.bind="group.input.criteria"></association-select>
+
+      <div class="input-group-btn">
+        <template containerless repeat.for="button of group.input.buttons">
+          <button
+            click.delegate="button.click()"
+            class="btn btn-default"
+            t.bind="button.text">${button.text}</button>
+        </template>
+      </div>
+    </div>
+  </template>
+
+</template>

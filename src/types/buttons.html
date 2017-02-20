@@ -1,0 +1,19 @@
+<template bindable="group">
+
+  <span if.bind="group.input.buttons" class="${group.input.type !== 'buttons' ? 'input-group-btn' : ''}">
+    <button repeat.for="button of group.input.buttons"
+      show.bind="!button.hidden"
+      click.delegate="button.action()" type="button" class="btn btn-${button.type || 'default'}">
+      <span if.bind="button.icon" class="fa fa-${button.icon}"></span>
+      <span if.bind="button.text" t.bind="button.text">${button.text}</span>
+    </button>
+  </span>
+
+  <button if.bind="!group.input.buttons" repeat.for="button of group.input.buttons"
+    show.bind="!button.hidden"
+    click.delegate="button.action()" type="button" class="pull-right btn btn-${button.type || 'default'}">
+    <span if.bind="button.icon" class="fa fa-${button.icon}"></span>
+    <span if.bind="button.text" t.bind="button.text">${button.text}</span>
+  </button>
+
+</template>

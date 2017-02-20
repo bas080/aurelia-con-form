@@ -1,0 +1,22 @@
+<template>
+
+  <require from="component/core/form/types/buttons.html"></require>
+
+  <input if.bind="!group.input.buttons || group.input.buttons.length < 1"
+  disabled.bind="group.input.disabled"
+  value.bind="group.input.value"
+  placeholder="${group.input.placeholder}"
+  type="${group.input.type}"
+  class="form-control">
+
+  <div if.bind="group.input.buttons"
+    class="input-group">
+    <input
+    value.bind="group.input.value"
+    placeholder="${group.input.placeholder}"
+    type="group.input.type"
+    class="form-control">
+    <buttons containerless group.bind="group"></buttons>
+  </div>
+
+</template>
